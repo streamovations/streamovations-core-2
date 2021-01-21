@@ -8,7 +8,7 @@
   },
   "servers": [
     {
-      "url": "http://es2.intern.streamovations.be/api.php",
+      "url": "https:/demo.streamovations.be/api.php",
       "variables": {}
     }
   ],
