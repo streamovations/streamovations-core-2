@@ -1,0 +1,3709 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CMS CORE",
+    "description": "Streamovations Core API",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://es2.intern.streamovations.be/api.php",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/buildings": {
+      "get": {
+        "tags": [
+          "Buildings"
+        ],
+        "summary": "readbuildings",
+        "description": "Lijst van buildings",
+        "operationId": "Readbuildings",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Buildings"
+        ],
+        "summary": "createbuilding",
+        "description": "Aanmaak nieuwe building",
+        "operationId": "Createbuilding",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "name",
+                  "backendName",
+                  "sortOrder"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name/label of the building."
+                  },
+                  "backendName": {
+                    "type": "string",
+                    "description": "The backendName (reference) of the building."
+                  },
+                  "sortOrder": {
+                    "type": "integer",
+                    "description": "Desired position in the building list, defaults to zero, which appends to the list.",
+                    "format": "int32",
+                    "example": 0
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/buildings/{id}": {
+      "get": {
+        "tags": [
+          "Buildings"
+        ],
+        "summary": "readbuilding",
+        "description": "Data van building met genoemd id",
+        "operationId": "Readbuilding",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van building",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "Buildings"
+        ],
+        "summary": "updatebuilding",
+        "description": "Wijziging bestaande building met genoemd id",
+        "operationId": "Updatebuilding",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van building",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Buildings"
+        ],
+        "summary": "deletebuilding",
+        "description": "Verwijdering bestaande building met genoemd id",
+        "operationId": "Deletebuilding",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van building",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/buildings/rooms": {
+      "get": {
+        "tags": [
+          "Buildings"
+        ],
+        "summary": "readbuildingsrooms",
+        "description": "Lijst van buildings met gelinkte rooms",
+        "operationId": "Readbuildingsrooms",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/buildings/{id}/rooms": {
+      "get": {
+        "tags": [
+          "Buildings"
+        ],
+        "summary": "readbuildingrooms",
+        "description": "Lijst van rooms in building met genoemd id",
+        "operationId": "Readbuildingrooms",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van building",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/categories/{id}": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "getSingleCategory",
+        "description": "Get single category",
+        "operationId": "GetSingleCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Category-id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "PutCategories",
+        "description": "Update a category based on id",
+        "operationId": "PutCategories",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "category id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "name",
+                  "categoryType",
+                  "sortOrder"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "name of category"
+                  },
+                  "categoryType": {
+                    "type": "string",
+                    "description": "type of new category (Acceptable values are: \"customer_defined\", \"system_uploaded\", \"system_uncategorized\")",
+                    "example": "customer_defined"
+                  },
+                  "sortOrder": {
+                    "type": "integer",
+                    "description": "sortOrder",
+                    "format": "int32"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "description of category"
+                  },
+                  "subcategoryId": {
+                    "type": "integer",
+                    "description": "id of super category",
+                    "format": "int32"
+                  },
+                  "baseDir": {
+                    "type": "string",
+                    "description": "baseDir"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "DeleteCategory",
+        "description": "Delete a category based on id",
+        "operationId": "DeleteCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Category id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/categories": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "getCategories",
+        "description": "Get list of active categories",
+        "operationId": "GetCategories",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "PostCategory",
+        "description": "Post a new category",
+        "operationId": "PostCategory",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "name",
+                  "categoryType",
+                  "sortOrder"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "name of category"
+                  },
+                  "categoryType": {
+                    "type": "string",
+                    "description": "type of new category (Acceptable values are: \"customer_defined\", \"system_uploaded\", \"system_uncategorized\")",
+                    "example": "customer_defined"
+                  },
+                  "sortOrder": {
+                    "type": "integer",
+                    "description": "sortOrder",
+                    "format": "int32"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "description of category"
+                  },
+                  "id_eventCategories": {
+                    "type": "integer",
+                    "description": "id of super category",
+                    "format": "int32"
+                  },
+                  "baseDir": {
+                    "type": "string",
+                    "description": "baseDir"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/categories/names": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "getCategoryNames",
+        "description": "Lijst van alle active category names",
+        "operationId": "GetCategoryNames",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/categories/names/subcategories": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "getCategoryNamesBySuperCategory",
+        "description": "List of all category names, formatted as 'supercategory > subcategory' when appropriate",
+        "operationId": "GetCategoryNamesBySuperCategory",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/encoders/{id}": {
+      "get": {
+        "tags": [
+          "Encoders"
+        ],
+        "summary": "GetSingleEncoder",
+        "description": "Get single encoder by id",
+        "operationId": "GetSingleEncoder",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The encoder id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cloud-encoders/{id}/status": {
+      "get": {
+        "tags": [
+          "Encoders"
+        ],
+        "summary": "EncoderStatus",
+        "description": "Retrieves status of encoder on gce",
+        "operationId": "EncoderStatus",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The encoder id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cloud-encoders/origin": {
+      "get": {
+        "tags": [
+          "Encoders"
+        ],
+        "summary": "GetOriginName",
+        "description": "Retrieves the name of the instance with the origin tag on gce",
+        "operationId": "GetOriginName",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cloud-encoders/{id}/start": {
+      "put": {
+        "tags": [
+          "Encoders"
+        ],
+        "summary": "StartEncoder",
+        "description": "Starts encoder on gce",
+        "operationId": "StartEncoder",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The encoder id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/interfaces/": {
+      "get": {
+        "tags": [
+          "Interfaces"
+        ],
+        "summary": "GetInterfaceDefinitions",
+        "description": "Get ALL (!) known interface definitions.",
+        "operationId": "GetInterfaceDefinitions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Interfaces"
+        ],
+        "summary": "CreateInterfaceDefinitions",
+        "description": "Create new interface definition by id.",
+        "operationId": "CreateInterfaceDefinitions",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "name",
+                  "interfaceType",
+                  "backendName"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The user friendly CMS name of the interface"
+                  },
+                  "interfaceType": {
+                    "type": "string",
+                    "description": "The user friendly CMS name of the interface (Acceptable values are: \"audio\", \"video\")",
+                    "example": "audio"
+                  },
+                  "backendName": {
+                    "type": "string",
+                    "description": "The backend StreamerService reference of the interface"
+                  },
+                  "languageAffinity": {
+                    "type": "string",
+                    "description": "Optional dedicated language of the interface. If set, the interface will only accept allocations for this language."
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/interfaces/{id}/": {
+      "get": {
+        "tags": [
+          "Interfaces"
+        ],
+        "summary": "GetSingleInterfaceDefinitions",
+        "description": "Get single interface definition by id.",
+        "operationId": "GetSingleInterfaceDefinitions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The interface resource id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/interfaces/{id}": {
+      "put": {
+        "tags": [
+          "Interfaces"
+        ],
+        "summary": "ModifyInterfaceDefinitions",
+        "description": "Modify an existing interface definition by id.",
+        "operationId": "ModifyInterfaceDefinitions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The interface resource id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The user friendly CMS name of the interface"
+                  },
+                  "interfaceType": {
+                    "type": "string",
+                    "description": "The user friendly CMS name of the interface (Acceptable values are: \"audio\", \"video\")",
+                    "example": "audio"
+                  },
+                  "languageAffinity": {
+                    "type": "string",
+                    "description": "Optional dedicated language of the interface. If set, the interface will only accept allocations for this language."
+                  },
+                  "backendName": {
+                    "type": "string",
+                    "description": "The backend StreamerService reference of the interface"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Interfaces"
+        ],
+        "summary": "DeleteInterfaceDefinitions",
+        "description": "Delete an existing interface definition by id.",
+        "operationId": "DeleteInterfaceDefinitions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The interface resource id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/languages": {
+      "get": {
+        "tags": [
+          "Languages"
+        ],
+        "summary": "listlangs",
+        "description": "List all supported languages with their data.",
+        "operationId": "Listlangs",
+        "parameters": [
+          {
+            "name": "minimal",
+            "in": "query",
+            "description": "Reduce the response size. Only return <id>, <name>, <langIso> fields. [yes/no]",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include-inactive",
+            "in": "query",
+            "description": "The response includes all language records flagged as \"not an active audio language\" as well. [yes/no]",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "forced",
+            "in": "query",
+            "description": "Include all deleted or otherwise removed language records, not just \"active\" records, and adds <m_status> fields to the response. [yes/no]",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/languages/{lang}": {
+      "get": {
+        "tags": [
+          "Languages"
+        ],
+        "summary": "singlelang",
+        "description": "Retrieve a single language based on the given id or iso-639-1 code.",
+        "operationId": "Singlelang",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "Request a specific language by ISO-639-2 identifier or by id, rather than a list of rooms. [2 char, lowercase a-z].",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "default": "or",
+              "example": "or"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/languages/supported-iso-codes": {
+      "get": {
+        "tags": [
+          "Languages"
+        ],
+        "summary": "langssupported-iso-codes",
+        "description": "Retrieve the full list of supported language iso-639-2 codes and their assigned labels.",
+        "operationId": "LangssupportedIsoCodes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/livemetadata/{callerId}/topics": {
+      "get": {
+        "tags": [
+          "Livemetadata"
+        ],
+        "summary": "getTopicsForCallerID",
+        "description": "Get loggings by session id",
+        "operationId": "GetTopicsForCallerID",
+        "parameters": [
+          {
+            "name": "callerId",
+            "in": "path",
+            "description": "Caller ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/livemetadata/mic-events/": {
+      "post": {
+        "tags": [
+          "Livemetadata"
+        ],
+        "summary": "postMicEvent",
+        "description": "Timestamp a mic event",
+        "operationId": "PostMicEvent",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "micID",
+                  "timestampType",
+                  "timestampUTC"
+                ],
+                "type": "object",
+                "properties": {
+                  "micID": {
+                    "type": "string",
+                    "description": "Microphone ID"
+                  },
+                  "timestampType": {
+                    "type": "string",
+                    "description": "Timestamp type (Acceptable values are: \"start\", \"stop\")",
+                    "example": "start"
+                  },
+                  "timestampUTC": {
+                    "type": "integer",
+                    "description": "UTC timestamp",
+                    "format": "int32"
+                  },
+                  "callerID": {
+                    "type": "string",
+                    "description": "Caller ID"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/livemetadata/topics/": {
+      "post": {
+        "tags": [
+          "Livemetadata"
+        ],
+        "summary": "postTopic",
+        "description": "Timestamp a topic event",
+        "operationId": "PostTopic",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "topicID",
+                  "timestampType",
+                  "timestampUTC"
+                ],
+                "type": "object",
+                "properties": {
+                  "topicID": {
+                    "type": "integer",
+                    "description": "Topic ID",
+                    "format": "int32"
+                  },
+                  "timestampType": {
+                    "type": "string",
+                    "description": "Timestamp type (Acceptable values are: \"general\")",
+                    "example": "general"
+                  },
+                  "timestampUTC": {
+                    "type": "integer",
+                    "description": "UTC timestamp",
+                    "format": "int32"
+                  },
+                  "callerID": {
+                    "type": "string",
+                    "description": "Caller ID"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/livemetadata/adjournments/": {
+      "post": {
+        "tags": [
+          "Livemetadata"
+        ],
+        "summary": "postAdjournment",
+        "description": "Timestamp an adjournment event",
+        "operationId": "PostAdjournment",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "timestampType",
+                  "timestampUTC"
+                ],
+                "type": "object",
+                "properties": {
+                  "timestampType": {
+                    "type": "string",
+                    "description": "Timestamp type (Acceptable values are: \"start\", \"stop\")",
+                    "example": "start"
+                  },
+                  "timestampUTC": {
+                    "type": "integer",
+                    "description": "UTC timestamp",
+                    "format": "int32"
+                  },
+                  "callerID": {
+                    "type": "string",
+                    "description": "Caller ID"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/livemetadata/confidentialsessions/": {
+      "post": {
+        "tags": [
+          "Livemetadata"
+        ],
+        "summary": "postConfidentialSession",
+        "description": "Timestamp a confidential session event",
+        "operationId": "PostConfidentialSession",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "timestampType",
+                  "timestampUTC"
+                ],
+                "type": "object",
+                "properties": {
+                  "timestampType": {
+                    "type": "string",
+                    "description": "Timestamp type (Acceptable values are: \"start\", \"stop\")",
+                    "example": "start"
+                  },
+                  "timestampUTC": {
+                    "type": "integer",
+                    "description": "UTC timestamp",
+                    "format": "int32"
+                  },
+                  "callerID": {
+                    "type": "string",
+                    "description": "Caller ID"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logentries/session/{id}": {
+      "get": {
+        "tags": [
+          "Loggings"
+        ],
+        "summary": "getforsession",
+        "description": "Get loggings by session id",
+        "operationId": "Getforsession",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "session id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logentries/dateinterval/{from}/{upto}": {
+      "get": {
+        "tags": [
+          "Loggings"
+        ],
+        "summary": "getbydateinterval",
+        "description": "Retrieve list of loggings in specified dateinterval",
+        "operationId": "Getbydateinterval",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "path",
+            "description": "The 'from' datetime[YYYY-MM-DDThh:mm:ss]",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "upto",
+            "in": "path",
+            "description": "The 'upto' datetime [YYYY-MM-DDThh:mm:ss]",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logentries/from/{from}": {
+      "get": {
+        "tags": [
+          "Loggings"
+        ],
+        "summary": "getFromDatetimeUntilNow",
+        "description": "Retrieve list of loggings starting from dateTime until now",
+        "operationId": "GetFromDatetimeUntilNow",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "path",
+            "description": "The 'from' datetime[YYYY-MM-DDThh:mm:ss]",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logentries/upto/{upto}": {
+      "get": {
+        "tags": [
+          "Loggings"
+        ],
+        "summary": "getFromBeginUntilDatetime",
+        "description": "Retrieve list of loggings from begin upto dateTime",
+        "operationId": "GetFromBeginUntilDatetime",
+        "parameters": [
+          {
+            "name": "upto",
+            "in": "path",
+            "description": "The 'upto' datetime[YYYY-MM-DDThh:mm:ss]",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logentries": {
+      "post": {
+        "tags": [
+          "Loggings"
+        ],
+        "summary": "postLogging",
+        "description": "Create a new log entry",
+        "operationId": "PostLogging",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "accountId",
+                  "type",
+                  "context",
+                  "description"
+                ],
+                "type": "object",
+                "properties": {
+                  "accountId": {
+                    "type": "integer",
+                    "description": "Account id",
+                    "format": "int32"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "logType",
+                    "example": "error"
+                  },
+                  "context": {
+                    "type": "string",
+                    "description": "context"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "description of the logging"
+                  },
+                  "sessionId": {
+                    "type": "integer",
+                    "description": "Session id",
+                    "format": "int32"
+                  },
+                  "impersonatedBy": {
+                    "type": "integer",
+                    "description": "impersonatedBy",
+                    "format": "int32"
+                  },
+                  "isDebug": {
+                    "type": "string",
+                    "description": "0: normal logging, 1: debug logging (Acceptable values are: \"0\", \"1\")",
+                    "example": "0"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/meetingdata/session/{id}": {
+      "get": {
+        "tags": [
+          "Meetingdata"
+        ],
+        "summary": "readmeetingdata",
+        "description": "Metadata voor deze sessie",
+        "operationId": "Readmeetingdata",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of hashed id van de sessie",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/retentions/{id}/": {
+      "get": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "GetSingleRetention",
+        "description": "Get retention by id.",
+        "operationId": "GetSingleRetention",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The retention id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "DeleteSingleRetention",
+        "description": "Delete a retention by id.",
+        "operationId": "DeleteSingleRetention",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The retention id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/retentions/": {
+      "get": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "ListAllRetentions",
+        "description": "Get all retentions.",
+        "operationId": "ListAllRetentions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "CreateRetention",
+        "description": "Create a new entry in retentions table.",
+        "operationId": "CreateRetention",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "sessionId",
+                  "date",
+                  "default",
+                  "status"
+                ],
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "integer",
+                    "description": "The session id",
+                    "format": "int32"
+                  },
+                  "date": {
+                    "type": "string",
+                    "description": "The retention date (yyyy-mm-dd)"
+                  },
+                  "default": {
+                    "type": "string",
+                    "description": "The retention date (yyyy-mm-dd)"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "Specify status (Acceptable values are: \"prepared\", \"started\", \"finished\", \"failed\")",
+                    "example": "prepared"
+                  },
+                  "mainEmail": {
+                    "type": "string",
+                    "description": "The main contact email address"
+                  },
+                  "altEmail": {
+                    "type": "string",
+                    "description": "The backup contact email address"
+                  },
+                  "emergencyPhone": {
+                    "type": "string",
+                    "description": "The main contact phone"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/retentions/{id}": {
+      "put": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "UpdateRetention",
+        "description": "Update a retentions",
+        "operationId": "UpdateRetention",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The retention id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "integer",
+                    "description": "The session id",
+                    "format": "int32"
+                  },
+                  "date": {
+                    "type": "string",
+                    "description": "The retention date"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "Specify status (Acceptable values are: \"prepared\", \"started\", \"finished\", \"failed\")",
+                    "example": "prepared"
+                  },
+                  "mainEmail": {
+                    "type": "string",
+                    "description": "The main contact email address"
+                  },
+                  "altEmail": {
+                    "type": "string",
+                    "description": "The backup contact email address"
+                  },
+                  "emergencyPhone": {
+                    "type": "string",
+                    "description": "The main contact phone"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{id}/retentions": {
+      "get": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "GetSessionRetention",
+        "description": "Returns retention data for a given session.",
+        "operationId": "GetSessionRetention",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Session-id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/retentions/expired/{date}": {
+      "get": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "GetExpiredRetentions",
+        "description": "Get expired retentions.",
+        "operationId": "GetExpiredRetentions",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "description": "The date to check expired retentions on)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/retentions/expired/{date}/{status}": {
+      "get": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "GetExpiredRetentionsByStatus",
+        "description": "Get expired retentions by status.",
+        "operationId": "GetExpiredRetentionsByStatus",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "description": "The date to check expired retentions on)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "description": "Specify status (Acceptable values are: \"ready\", \"started\", \"processing\", \"finished\", \"failed\")",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "default": "ready",
+              "example": "ready"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/retentions/filter/{by}/{on}": {
+      "get": {
+        "tags": [
+          "Retentions"
+        ],
+        "summary": "ListAllRetentionsFiltered",
+        "description": "Get all retentions.",
+        "operationId": "ListAllRetentionsFiltered",
+        "parameters": [
+          {
+            "name": "by",
+            "in": "path",
+            "description": "Specify FilterBy (Acceptable values are: \"sessionId\", \"date\", \"default\", \"status\", \"mail\", \"phone\")",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "sessionId"
+            }
+          },
+          {
+            "name": "on",
+            "in": "path",
+            "description": "Specify FilterOn",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/retentions/download-status/{session}/{uid}": {
+      "get": {
+        "tags": [
+          "RetentionDownloads"
+        ],
+        "summary": "RetentionDownloadStatus",
+        "description": "Get retention download status.",
+        "operationId": "RetentionDownloadStatus",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "The session reference/id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "The download uid",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/retentions/download-request/{session}": {
+      "post": {
+        "tags": [
+          "RetentionDownloads"
+        ],
+        "summary": "NewRetentionDownload",
+        "description": "Create a new retention download request.",
+        "operationId": "NewRetentionDownload",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "The session reference/id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "token"
+                ],
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "description": "The download request token"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rooms": {
+      "get": {
+        "tags": [
+          "Rooms"
+        ],
+        "summary": "readrooms",
+        "description": "Lijst van rooms",
+        "operationId": "Readrooms",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Rooms"
+        ],
+        "summary": "createrooms",
+        "description": "Aanmaak nieuwe room",
+        "operationId": "Createrooms",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rooms/{id}": {
+      "get": {
+        "tags": [
+          "Rooms"
+        ],
+        "summary": "readroom",
+        "description": "Data van room met genoemd id",
+        "operationId": "Readroom",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van room",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "Rooms"
+        ],
+        "summary": "updateroom",
+        "description": "Wijziging bestaande room met genoemd id",
+        "operationId": "Updateroom",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van room",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Rooms"
+        ],
+        "summary": "deleteroom",
+        "description": "Verwijdering bestaande room met genoemd id",
+        "operationId": "Deleteroom",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van room",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rooms/{id}/interfaces": {
+      "get": {
+        "tags": [
+          "Rooms"
+        ],
+        "summary": "readroominterfaces",
+        "description": "Lijst van audio|video gefilterde interfaces voor room met genoemd id",
+        "operationId": "Readroominterfaces",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van room",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Soort interface (Acceptable values are: \"audio\", \"video\")",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "audio",
+              "example": "audio"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rooms/{id}/qualitybundles": {
+      "get": {
+        "tags": [
+          "Rooms"
+        ],
+        "summary": "readroomqualitybundles",
+        "description": "Lijst van A/V quality bundels voor room met genoemd id",
+        "operationId": "Readroomqualitybundles",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van room",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rooms/{id}/session": {
+      "get": {
+        "tags": [
+          "Rooms"
+        ],
+        "summary": "sessioninroom",
+        "description": "Verwijdering bestaande room met genoemd id",
+        "operationId": "Sessioninroom",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id van room",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{session}/ongoing/transmit-stream": {
+      "get": {
+        "tags": [
+          "Streaming to 3rd Parties"
+        ],
+        "summary": "ongoingtransmitlivestreams",
+        "description": "Retrieve ongoingFacebook Live streams for a session.",
+        "operationId": "Ongoingtransmitlivestreams",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "Session identifier",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{session}/action/transmit-stream": {
+      "post": {
+        "tags": [
+          "Streaming to 3rd Parties"
+        ],
+        "summary": "transmitlivestream",
+        "description": "Transmit Live stream",
+        "operationId": "Transmitlivestream",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "Session identifier",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "language",
+                  "destinationURL",
+                  "callback"
+                ],
+                "type": "object",
+                "properties": {
+                  "language": {
+                    "type": "string",
+                    "description": "Language to push"
+                  },
+                  "destinationURL": {
+                    "type": "string",
+                    "description": "Target destinationURL which accepts the live stream"
+                  },
+                  "callback": {
+                    "type": "string",
+                    "description": "Action to start"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{session}/action/transmit-stream/{ID}": {
+      "delete": {
+        "tags": [
+          "Streaming to 3rd Parties"
+        ],
+        "summary": "stoptransmitlivestream",
+        "description": "Stop Transmit Live stream",
+        "operationId": "Stoptransmitlivestream",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "Session identifier",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "Transmit Live Stream ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{session}/ongoing/facebook-publish": {
+      "get": {
+        "tags": [
+          "Streaming to 3rd Parties"
+        ],
+        "summary": "ongoingfacebooklive",
+        "description": "Retrieve ongoingFacebook Live streams for a session.",
+        "operationId": "Ongoingfacebooklive",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "Session identifier",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{session}/action/facebook-publish": {
+      "post": {
+        "tags": [
+          "Streaming to 3rd Parties"
+        ],
+        "summary": "startfacebooklive",
+        "description": "Start a Facebook Live stream",
+        "operationId": "Startfacebooklive",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "Session identifier",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "language",
+                  "oauth",
+                  "fbpage",
+                  "callback"
+                ],
+                "type": "object",
+                "properties": {
+                  "language": {
+                    "type": "string",
+                    "description": "Language to push"
+                  },
+                  "oauth": {
+                    "type": "string",
+                    "description": "Facebook oauth token"
+                  },
+                  "fbpage": {
+                    "type": "string",
+                    "description": "Target Facebook page which accepts the live stream"
+                  },
+                  "callback": {
+                    "type": "string",
+                    "description": "Action to start"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Streaming to 3rd Parties"
+        ],
+        "summary": "stopfacebooklive",
+        "description": "Stop a Facebook Live stream",
+        "operationId": "Stopfacebooklive",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "Session identifier",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "oauth",
+                  "fbLiveStream"
+                ],
+                "type": "object",
+                "properties": {
+                  "oauth": {
+                    "type": "string",
+                    "description": "Facebook oauth token"
+                  },
+                  "fbLiveStream": {
+                    "type": "string",
+                    "description": "Facebook Live Stream ID"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/services": {
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "listservices",
+        "description": "Retrieve known services list",
+        "operationId": "Listservices",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/services/{service}": {
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "servicestatus",
+        "description": "Retrieve service status",
+        "operationId": "Servicestatus",
+        "parameters": [
+          {
+            "name": "service",
+            "in": "path",
+            "description": "Service (Acceptable values are: \"streamer\", \"archiver\", \"filesystem\", \"media\", \"metadata\", \"social\", \"statistics\", \"download_extraction\")",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "streamer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/statistics/montlystreamings/year/{year}": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "yeargraphsessionsviews",
+        "description": "Year graph: sessions and views",
+        "operationId": "Yeargraphsessionsviews",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description": "Year",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/statistics/transferred-data/summary": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "transferreddata",
+        "description": "Transferred data summary per year",
+        "operationId": "Transferreddata",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{id}/stats/connections/all/all": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "readstatistics",
+        "description": "Statistieken-object voor meegegeven sessie.",
+        "operationId": "Readstatistics",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Session id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{id}/stats/from/{from}/through/{through}/connections/all/all": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "readstatisticsforinterval",
+        "description": "Statistieken-object voor meegegeven sessie.",
+        "operationId": "Readstatisticsforinterval",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Session id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "from",
+            "in": "path",
+            "description": "From date",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "2015-01-01"
+            }
+          },
+          {
+            "name": "through",
+            "in": "path",
+            "description": "End date",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "2016-01-01"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/statistics/bandwidth/from/{from}/through/{through}/{app}": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "totalbandwidthforinterval",
+        "description": "Statistieken-object voor meegegeven sessie.",
+        "operationId": "Totalbandwidthforinterval",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "path",
+            "description": "From date",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "2015-04-01"
+            }
+          },
+          {
+            "name": "through",
+            "in": "path",
+            "description": "End date",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "2015-04-30"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "application ('vod', 'live' or 'all')",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "all"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/system/recording-callback": {
+      "post": {
+        "tags": [
+          "System/Callbacks"
+        ],
+        "summary": "recording-callback",
+        "description": "Provides the required information on completion of the media file processing.",
+        "operationId": "RecordingCallback",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "sessionId",
+                  "result",
+                  "fileName"
+                ],
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "integer",
+                    "description": "The relevant API session identifier for this media file.",
+                    "format": "int32"
+                  },
+                  "result": {
+                    "type": "string",
+                    "description": "The success flag. Provide a 1 for success, a zero for failure. (Acceptable values are: \"0\", \"1\")",
+                    "example": "1"
+                  },
+                  "fileName": {
+                    "type": "string",
+                    "description": "The FULL PATH and filename to the resulting media file."
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/system/slides-callback": {
+      "post": {
+        "tags": [
+          "System/Callbacks"
+        ],
+        "summary": "slides-callback",
+        "description": "Provides the required information on completion of the ppt-slide processing.",
+        "operationId": "SlidesCallback",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "sessionId",
+                  "fileName"
+                ],
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "integer",
+                    "description": "The relevant API session identifier for these slides.",
+                    "format": "int32"
+                  },
+                  "fileName": {
+                    "type": "string",
+                    "description": "The FULL PATH and filename to the resulting media file."
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/system/retention-mailing-cycle/{simulation}": {
+      "post": {
+        "tags": [
+          "System/Callbacks"
+        ],
+        "summary": "mailing-cycle",
+        "description": "Execute mailing-cycle.",
+        "operationId": "MailingCycle",
+        "parameters": [
+          {
+            "name": "simulation",
+            "in": "path",
+            "description": "Enable simulation mode ? (Acceptable values are: \"\", \"simulation\")",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "simulation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/system/url-info/{url}": {
+      "get": {
+        "tags": [
+          "System/Callbacks"
+        ],
+        "summary": "url-info",
+        "description": "Retrieve URL info and linked session for the provided URL.",
+        "operationId": "UrlInfo",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "path",
+            "description": "The relevant media URL.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/system/url-access/{url}": {
+      "post": {
+        "tags": [
+          "System/Callbacks"
+        ],
+        "summary": "url-access",
+        "description": "Check if the sessions matching the given URL are password protected and if the provided hash matches any of the passwords",
+        "operationId": "UrlAccess",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "path",
+            "description": "The relevant media URL",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hash": {
+                    "type": "string",
+                    "description": "password hash"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/system/retention-mailing/{session}": {
+      "post": {
+        "tags": [
+          "System/Callbacks"
+        ],
+        "summary": "RetenionMailForSession",
+        "description": "Create a new entry in retentions table.",
+        "operationId": "RetenionMailForSession",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "The session id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/templates": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "readtemplates",
+        "description": "List of templates",
+        "operationId": "Readtemplates",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "createtemplate",
+        "description": "Create new template",
+        "operationId": "Createtemplate",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "type",
+                  "html",
+                  "text"
+                ],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Template type"
+                  },
+                  "html": {
+                    "type": "string",
+                    "description": "HTML <body> content, such as headings, paragraphs"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "Text only content"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/templates/{id}": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "readtemplate",
+        "description": "Template with specified id",
+        "operationId": "Readtemplate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Template id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "updatetemplate",
+        "description": "Modify existing template",
+        "operationId": "Updatetemplate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Template id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Template type"
+                  },
+                  "html": {
+                    "type": "string",
+                    "description": "HTML <body> content, such as headings, paragraphs"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "Text only content"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "deletetemplate",
+        "description": "Delete existing template",
+        "operationId": "Deletetemplate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Template id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/templates/type/{type}": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "typedtemplate",
+        "description": "Template by specified type",
+        "operationId": "Typedtemplate",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Template type",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/templates/{id}/history": {
+      "get": {
+        "tags": [
+          "Templates"
+        ],
+        "summary": "templatehistory",
+        "description": "Template history of template with specified id",
+        "operationId": "Templatehistory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Template id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sessions/{session}/topics/{topic}/socketpush": {
+      "post": {
+        "tags": [
+          "Topics"
+        ],
+        "summary": "performsocketpush",
+        "description": "Push the specified topic to the NodeServer",
+        "operationId": "Performsocketpush",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "path",
+            "description": "Session id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "topic",
+            "in": "path",
+            "description": "Topic id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "method"
+                ],
+                "type": "object",
+                "properties": {
+                  "method": {
+                    "type": "string",
+                    "description": "Method to use for the push to the NodeServer (Acceptable values are: \"post\", \"put\", \"delete\")",
+                    "example": "post"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Buildings",
+      "description": ""
+    },
+    {
+      "name": "Categories",
+      "description": ""
+    },
+    {
+      "name": "Encoders",
+      "description": ""
+    },
+    {
+      "name": "Interfaces",
+      "description": ""
+    },
+    {
+      "name": "Languages",
+      "description": ""
+    },
+    {
+      "name": "Livemetadata",
+      "description": ""
+    },
+    {
+      "name": "Loggings",
+      "description": ""
+    },
+    {
+      "name": "Meetingdata",
+      "description": ""
+    },
+    {
+      "name": "Retentions",
+      "description": ""
+    },
+    {
+      "name": "RetentionDownloads",
+      "description": ""
+    },
+    {
+      "name": "Rooms",
+      "description": ""
+    },
+    {
+      "name": "Streaming to 3rd Parties",
+      "description": ""
+    },
+    {
+      "name": "Services",
+      "description": ""
+    },
+    {
+      "name": "Statistics",
+      "description": ""
+    },
+    {
+      "name": "System/Callbacks",
+      "description": ""
+    },
+    {
+      "name": "Templates",
+      "description": ""
+    },
+    {
+      "name": "Topics",
+      "description": ""
+    }
+  ]
+}
